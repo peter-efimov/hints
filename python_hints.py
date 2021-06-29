@@ -102,3 +102,6 @@ df[['C', 'D']] = df.apply(myfunc1, axis=1)
 # Чтобы расширить ноутбук на всю ширину экрана
 from IPython.core.display import display, HTML
 display(HTML("<style>.container { width:100% !important; }</style>"))
+
+# Округление вверх до целого в пандасе и перевод в формат int64
+df_ship['demand'] = (df_ship['loc_speed'] * region_safe_term).apply(np.ceil).astype('int64')
