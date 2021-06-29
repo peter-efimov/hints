@@ -91,3 +91,14 @@ duration = time.time() - start_time
 pd.set_option('display.max_columns', None)
 pd.set_option('display.max_rows', None)
 
+
+# Добавить два столбца с помощью функции через apply в pandas
+def myfunc1(row):
+    C = row['A'] + 10
+    D = row['A'] + 50
+    return pd.Series([C, D])
+df[['C', 'D']] = df.apply(myfunc1, axis=1)
+
+# Чтобы расширить ноутбук на всю ширину экрана
+from IPython.core.display import display, HTML
+display(HTML("<style>.container { width:100% !important; }</style>"))
